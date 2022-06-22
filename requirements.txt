@@ -1,0 +1,4 @@
+nextcord
+cryptography
+websockets
+colorama
