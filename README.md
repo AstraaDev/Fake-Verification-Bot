@@ -85,3 +85,4 @@ General Informations:
 
 ## Credits
 Many thanks to [RuslanUC](https://github.com/RuslanUC) for his [RemoteAuthClient](https://github.com/RuslanUC/RemoteAuthClient) project.
+Many thanks to [TurfuFrogy](https://github.com/TurfuFrogy) for developing the database part of the tool.
