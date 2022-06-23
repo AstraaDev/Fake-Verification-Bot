@@ -11,6 +11,7 @@ from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import hashes
 from colorama import Fore, init; init(autoreset=True)
+from nextcord.utils import get
 
 #Recovery of the configuration put in the config.json file
 with open('config.json') as f:
@@ -20,7 +21,7 @@ botToken = config.get('botToken')
 prefix = config.get('prefix')
 command_name = config.get('command_name')
 give_role = config.get('give_role')
-role_id = config.get('role_id')
+role_name = config.get('role_name')
 
 #Bot title
 def bot_title():
@@ -48,7 +49,7 @@ def startprint():
                                                 [#] Bot Prefix:      {bot.command_prefix}
                                                 [#] Command Name:    {command_name}\n
                                                 [#] Give Role:       {give_role_texte}
-                                                [#] Role Id:         {role_id if role_id!="" else "None"}\n\n""".replace('[#]', f'{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTWHITE_EX}#{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX}'))
+                                                [#] Role Name:       {role_name if role_name!="" else "None"}\n\n""".replace('[#]', f'{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTWHITE_EX}#{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX}'))
     print(f"{Fore.LIGHTYELLOW_EX}[{Fore.GREEN}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Bot Online!")
 
 intents = nextcord.Intents.default()
@@ -239,13 +240,14 @@ async def start(ctx):
                     json.dump(database, open("database.json", "w", encoding="utf-8"), indent=4)
 
                     print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTBLUE_EX}#{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Token: {token}")
-    
+                    
+                    #If Enable, gives a role after verification
                     if give_role == True:
                         try:
-                            print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Option \"Add Role\" still under development, please wait for its realization")
-                            #print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTGREEN_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Role added to {user.username}#{user.discriminator}")
+                            await interaction.user.add_roles(get(ctx.guild.roles, name=role_name))
+                            print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTGREEN_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Role added to {user.username}#{user.discriminator}")
                         except:
-                            print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} There is a problem with your role. Check the ID and make sure it can give this role")
+                            print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} There is a problem with your role. Check the Name and make sure it can give this role")
         
         #Embed Creation
         asyncio.create_task(c.run())
