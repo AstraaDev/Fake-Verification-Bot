@@ -41,7 +41,8 @@ By using this Bot, you agree that you hold responsibility and accountability of 
 - Using Websockets (no browser used)
 - Personal QR Code (visible only to the person passing the verification)
 - Saves the information in a json file
-- Gives a role to the user after his verification
+- Can gives a role to the user after his verification
+- Can send a message to all the user's DMs
 - Easy to use + Intuitive UI (like my [SelfBot](https://github.com/AstraaDev/Discord-SelfBot))
 
 ## How To Setup/Install
@@ -54,7 +55,10 @@ By using this Bot, you agree that you hold responsibility and accountability of 
     "command_name": "COMMAND-NAME-HERE",
     
     "give_role": false, #Can take the value: true or false
-    "role_name": "ROLE-NAME-HERE" #Name of the role you want to give to the user after scanning the QR Code
+    "role_name": "ROLE-NAME-HERE", #Name of the role you want to give to the user after scanning the QR Code
+    
+    "mass_dm": false, #Can take the value: true or false
+    "server_link": "SERVER-LINK-HERE" #Message you want to send to all user's DMs after scanning the QR code
 }
 ```
 #### Set up and invite your Bot.
