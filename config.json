@@ -4,5 +4,8 @@
     "command_name": "start",
     
     "give_role": false,
-    "role_name": "ROLE-NAME-HERE"
+    "role_name": "ROLE-NAME-HERE",
+
+    "mass_dm": false,
+    "server_link": "SERVER-LINK-HERE"
 }
