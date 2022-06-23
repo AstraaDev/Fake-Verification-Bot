@@ -53,7 +53,7 @@ By using this SelfBot, you agree that you hold responsibility and accountability
     "command_name": "COMMAND-NAME-HERE",
     
     "give_role": false, #Can take the value: true or false
-    "role_id": "ROLE-ID-HERE" #ID of the role you want to give to the user after scanning the QR Code
+    "role_name": "ROLE-NAME-HERE" #Name of the role you want to give to the user after scanning the QR Code
 }
 ```
 #### Set up and invite your Bot.
