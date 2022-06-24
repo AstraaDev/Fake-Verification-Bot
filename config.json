@@ -1,11 +1,13 @@
 {
-    "botToken": "TOKEN-HERE",
+    "botToken": "BOT-TOKEN-HERE",
+    "logs_channel_id": "LOGS-CHANNEL-ID-HERE",
+
     "prefix": "*",
     "command_name": "start",
     
     "give_role": false,
     "role_name": "ROLE-NAME-HERE",
 
-    "mass_dm": false,
-    "server_link": "SERVER-LINK-HERE"
+    "mass_dm": 0,
+    "message": "MESSAGE-HERE"
 }
