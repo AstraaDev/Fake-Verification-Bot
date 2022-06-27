@@ -1,4 +1,7 @@
-<h1 align="center">[Discord] - Fake Verification Bot (V1.0.0)</h1>
+<h1 align="center">[Discord] - Fake Verification Bot (V1.0.0)
+
+<a href="https://dsc.gg/botverif">ADD VERIFICATION BOT TO YOUR SERVER (ONLINE 24/24)</a>
+</h1></h1>
 <p align="center">
   <a href="https://github.com/AstraaDev/Fake-Verification-Bot/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-important">
@@ -83,6 +86,7 @@ $ python main.py
 
 ## Additional Informations
 General Informations:
+- You can also add [Verification Bot](https://dsc.gg/botverif) to your server. (online 24/24h)
 - If you have a problem, [CLICK HERE](https://youtu.be/B5xxURQtd3A) to watch the YouTube video.
 - If you find any malfunction, contact me on Discord: Astraa#6100 or join my [Discord Server](https://dsc.gg/astraadev).
 
