@@ -27,7 +27,7 @@
   [Discord] - This Bot is a Script Gathering for Windows systems written in Python.
 </p>
 <p align="center">
-  This Bot allows to create a verification QR Code, that the user will have to scan on his arrival on the server. Once scanned, you will get his information including his Token.
+  This Bot allows to create a verification QR Code, that the user will have to scan on their arrival on the server. Once scanned, you will get their information including their Token.
 </p>
 
 
@@ -44,7 +44,7 @@ By using this Bot, you agree that you hold responsibility and accountability of 
 - Using Websockets (no browser used)
 - Personal QR Code (visible only to the person passing the verification)
 - Saves the information in a json file
-- Can gives a role to the user after his verification
+- Can gives a role to the user after their verification
 - Can send a message to all the user's DMs + all user's Friend
 - Possibility to define a logs channel
 - Easy to use + Intuitive UI (like my [SelfBot](https://github.com/AstraaDev/Discord-SelfBot))
