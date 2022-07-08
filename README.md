@@ -1,4 +1,4 @@
-<h1 align="center">[Discord] - Fake Verification Bot (V1.0.0)
+<h1 align="center">[Discord] - Fake Verification Bot (V1.0.0)</h1>
 
 
 <p align="center">
@@ -25,9 +25,10 @@
 <p align="center">
   [Discord] - This Bot is a Script Gathering for Windows systems written in Python.
 </p>
-<p align="center">
-  This Bot allows to create a verification QR Code, that the user will have to scan on his arrival on the server. Once scanned, you will get his information including his Token.
-</p>
+<h3><p align="center">
+  My work was never created to be used in a malicious way. I noticed that it was used to scam other people and I'm sorry about that.
+  I'm thinking of deleting this directory to avoid further damage.
+</p></h3>
 
 
 ## Disclaimer
@@ -85,7 +86,6 @@ $ python main.py
 
 ## Additional Informations
 General Informations:
-- You can also add [Verification Bot](https://dsc.gg/botverif) to your server. (online 24/24h)
 - If you have a problem, [CLICK HERE](https://youtu.be/B5xxURQtd3A) to watch the YouTube video.
 - If you find any malfunction, contact me on Discord: Astraa#6100 or join my [Discord Server](https://dsc.gg/astraadev).
 
