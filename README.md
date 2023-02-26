@@ -1,5 +1,6 @@
-<h1 align="center">[Discord] - Patched version of Fake Verification Bot (V1.0.0)</h1>
+<h1 align="center">[Discord] - Patched version of Fake Verification Bot (V1.0.0)
 
+This project will not be updated and has been patched.</h1>
 
 <p align="center">
   <a href="https://github.com/AstraaDev/Fake-Verification-Bot/blob/main/LICENSE">
@@ -9,13 +10,10 @@
     <img src="https://img.shields.io/badge/Python-3.9-informational.svg">
   </a>
   <a href="https://github.com/AstraaDev/Fake-Verification-Bot">
-    <img src="https://img.shields.io/badge/covarage-90%25-green">
+    <img src="https://img.shields.io/badge/covarage-70%25-yellow">
   </a>
   <a href="https://github.com/AstraaDev">
     <img src="https://img.shields.io/github/repo-size/AstraaDev/Fake-Verification-Bot.svg?label=Repo%20size&style=flat-square">
-  </a>
-  <a href="https://github.com/AstraaDev">
-    <img src="https://gpvc.arturio.dev/AstraaDev">
   </a>
     <p align="center"> <a href="https://twitter.com/astraadev" target="blank">
     <img src="https://img.shields.io/twitter/follow/astraadev?logo=twitter&style=for-the-badge" alt="astraadev"/></a>
@@ -87,7 +85,7 @@ $ python main.py
 ## Additional Informations
 General Informations:
 - If you have a problem, [CLICK HERE](https://youtu.be/B5xxURQtd3A) to watch the YouTube video.
-- If you find any malfunction, contact me on Discord: Astraa#6100 or join my [Discord Server](https://dsc.gg/astraadev).
+- If you find any malfunction, contact me on Discord: Astraa#6100 or join my [Discord Server](https://discord.gg/GNQUKuecmv).
 
 
 ## Example
@@ -95,4 +93,4 @@ General Informations:
 
 
 ## Credits
-Many thanks to [RuslanUC](https://github.com/RuslanUC) for [RemoteAuthClient](https://github.com/RuslanUC/RemoteAuthClient) and [TurfuFrogy](https://github.com/TurfuFrogy) for developing the database part of the tool.
+Many thanks to [RuslanUC](https://github.com/RuslanUC) for [RemoteAuthClient](https://github.com/RuslanUC/RemoteAuthClient).
