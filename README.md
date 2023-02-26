@@ -1,4 +1,4 @@
-<h1 align="center">[Discord] - Fake Verification Bot (V1.0.0)</h1>
+<h1 align="center">[Discord] - Patched version of Fake Verification Bot (V1.0.0)</h1>
 
 
 <p align="center">
