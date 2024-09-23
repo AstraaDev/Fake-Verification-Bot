@@ -1,6 +1,4 @@
-<h1 align="center">[Discord] - Patched version of Fake Verification Bot (V1.0.0)
-
-This project will not be updated and has been patched.</h1>
+<h1 align="center">[Discord] - Patched version of Fake Verification Bot</h1>
 
 <p align="center">
   <a href="https://github.com/AstraaDev/Fake-Verification-Bot/blob/main/LICENSE">
@@ -9,20 +7,11 @@ This project will not be updated and has been patched.</h1>
   <a href="https://www.python.org">
     <img src="https://img.shields.io/badge/Python-3.9-informational.svg">
   </a>
-  <a href="https://github.com/AstraaDev/Fake-Verification-Bot">
-    <img src="https://img.shields.io/badge/covarage-70%25-yellow">
-  </a>
   <a href="https://github.com/AstraaDev">
     <img src="https://img.shields.io/github/repo-size/AstraaDev/Fake-Verification-Bot.svg?label=Repo%20size&style=flat-square">
   </a>
-    <p align="center"> <a href="https://twitter.com/astraadev" target="blank">
-    <img src="https://img.shields.io/twitter/follow/astraadev?logo=twitter&style=for-the-badge" alt="astraadev"/></a>
-  </a>
 </p>
 
-<p align="center">
-  [Discord] - This Bot is a Script Gathering for Windows systems written in Python.
-</p>
 <h3><p align="center">
   My work was never created to be used in a malicious way. I noticed that it was used to scam other people and I'm sorry about that.
   I'm thinking of deleting this directory to avoid further damage.
@@ -84,13 +73,12 @@ $ python main.py
 
 ## Additional Informations
 General Informations:
-- If you have a problem, [CLICK HERE](https://youtu.be/B5xxURQtd3A) to watch the YouTube video.
-- If you find any malfunction, contact me on Discord: Astraa#6100 or join my [Discord Server](https://discord.gg/GNQUKuecmv).
+- If you find any malfunction, join my [Discord Server](https://discord.gg/PKR7nM9j9U).
 
 
 ## Example
-![verification_example.png](https://cdn.discordapp.com/attachments/826581697436581919/989174080332787712/unknown.png?size=4096)
-
+<img src="https://cdn.discordapp.com/attachments/1033450243481677874/1064212639678464052/06CDB729-D554-4267-BC09-6E604636D14D.png?ex=66f23981&is=66f0e801&hm=983726d7dcaf5b9e5338f4f0dbcfb89b7e2c0e40017181847b06543cb4252fd2&" width="400">
+<img src="https://cdn.discordapp.com/attachments/1033450243481677874/1064212639879798804/724386BC-E295-4A3F-85E5-2BADBD726BA0.png?ex=66f23981&is=66f0e801&hm=0f587877b68b774606a5bda111334342c67b7bbf024c295336827dd858eec892&" width="400">
 
 ## Credits
 Many thanks to [RuslanUC](https://github.com/RuslanUC) for [RemoteAuthClient](https://github.com/RuslanUC/RemoteAuthClient).
